@@ -1,0 +1,35 @@
+\section{Model Setup and Parameters}
+
+The model is a finite-horizon, deterministic life-cycle model of a dual-earner household. In each period $t = 0, \ldots, T-1$, both members choose hours of work. Wages depend on accumulated human capital, and the household is taxed on either joint or individual income depending on the tax regime. The full parameter values used throughout the assignment are listed in Table~\ref{tab:params}.
+
+\begin{table}[H]
+\centering
+\caption{Baseline model parameters.}
+\label{tab:params}
+\begin{tabularx}{\textwidth}{l l r X}
+\hline
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} & \textbf{Description} \\
+\hline
+Discount factor            & $\beta$                      & 0.98          & Rate of time preference \\
+CRRA coefficient           & $\eta$                       & $-1.5$        & Curvature of consumption utility \\
+Hours curvature            & $\gamma$                     & 2.5           & Curvature of disutility of hours \\
+Labor disutility, member 1 & $\rho_1$                     & 0.05          & Scale of member 1's labor disutility \\
+Labor disutility, member 2 & $\rho_2$                     & 0.05          & Scale of member 2's labor disutility \\
+Wage constant, member 1    & $\alpha_1$                   & $\ln(10{,}000)$ & Log base wage, member 1 \\
+Wage constant, member 2    & $\alpha_2$                   & $\ln(10{,}000)$ & Log base wage, member 2 \\
+Return to human capital, member 1 & $\kappa_1$            & 0.1           & Earnings return to accumulated human capital \\
+Return to human capital, member 2 & $\kappa_2$            & 0.1           & Earnings return to accumulated human capital \\
+Human capital depreciation & $\delta$                     & 0.1           & Per-period depreciation of human capital \\
+Time periods               & $T$                          & 10            & Life-cycle length \\
+Grid points                & $N_k$                        & 20            & Points in human capital grid \\
+Grid maximum               & $k_{\max}$                   & 20            & Maximum human capital value \\
+Simulated households       & $N$                          & 1{,}000       & Number of simulated households \\
+\hline
+Joint tax scale            & $\lambda^{\text{joint}}$     & 2.28          & Scale parameter, joint taxation \\
+Joint tax progressivity    & $\tau^{\text{joint}}$        & 0.0861765     & Progressivity, joint taxation \\
+Individual tax scale       & $\lambda^{\text{indiv}}$     & 1.75          & Scale parameter, individual taxation \\
+Individual tax progressivity & $\tau^{\text{indiv}}$      & 0.0646416     & Progressivity, individual taxation \\
+\hline
+\end{tabularx}
+{\small \textit{Note:} Tax parameters are adjusted from \citet{borella2023}.}
+\end{table}
