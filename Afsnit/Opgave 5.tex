@@ -23,15 +23,12 @@ This is not a simple algebra problem because when we change $\lambda$, household
 
 We first evaluate $\Delta G$ on a coarse grid of $\lambda$ values between 1.5 and 3.0 to find a bracket where the function changes sign. Then we use Brent's method (\texttt{scipy.optimize.brentq}) to pin down the exact root within that bracket.
 
-% ---------------------------------------------------------------
-% PLACEHOLDER PLOT
-% ---------------------------------------------------------------
-% \begin{center}
-% \fbox{\parbox{0.85\textwidth}{
-% \textbf{[INSERT PLOT: Budget difference as a function of $\lambda^{\text{indiv}}$]}\\[6pt]
-% Scatter/line plot showing $\Delta G(\lambda)$ on the y-axis against $\lambda^{\text{indiv}}$ on the x-axis, for the coarse grid of 8 values between 1.5 and 3.0. A horizontal dashed line at $\Delta G = 0$ marks budget neutrality. The curve should cross zero somewhere around $\lambda \approx 1.77$.
-% }}
-% \end{center}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Billeder/Budget difference.png}
+    \caption{Budget difference $\Delta G(\lambda^{\text{indiv}})$ as a function of the individual tax scale. The dashed line marks budget neutrality ($\Delta G = 0$). The root at $\lambda^{\text{indiv},\star} \approx 1.767$ is where the individual scheme collects the same revenue as the joint scheme.}
+    \label{fig:budget_diff}
+\end{figure}
 
 \subsection*{Result}
 
