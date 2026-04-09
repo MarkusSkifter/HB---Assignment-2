@@ -1,0 +1,52 @@
+\section{Question 1: Weighted Household Utility}\label{sec:q1}
+
+\subsection*{Model Change}
+
+In the baseline model from, the household utility function is an equal-weighted sum of individuals utilities:
+%
+\begin{equation}\label{eq:baseline_util}
+    U(c_t, h_{1,t}, h_{2,t}) = 2\frac{(c_t/2)^{1+\eta}}{1+\eta} - \rho_1 \frac{h_{1,t}^{1+\gamma}}{1+\gamma} - \rho_2 \frac{h_{2,t}^{1+\gamma}}{1+\gamma}
+\end{equation}
+%
+We then introduce the weight $\mu \in [0,1]$ on member 1 and $(1-\mu)$ on member 2. 
+\newline
+The individual utilities are:
+%
+\begin{equation}
+    u_j(c_t, h_{j,t}) = \frac{(c_t/2)^{1+\eta}}{1+\eta} - \rho_j \frac{h_{j,t}^{1+\gamma}}{1+\gamma}, \quad j \in \{1,2\}
+\end{equation}
+%
+The new weighted household utility becomes:
+%
+\begin{equation}
+    U(c_t, h_{1,t}, h_{2,t}) = \mu \, u_1(c_t, h_{1,t}) + (1-\mu) \, u_2(c_t, h_{2,t})
+\end{equation}
+%
+If we expand this and collect terms, the consumption part does not depend on $\mu$ because $\mu + (1-\mu) = 1$. Only the disutility-of-labor terms are affected. The result is:
+%
+\begin{equation}\label{eq:weighted_util}
+    U = 2\frac{(c_t/2)^{1+\eta}}{1+\eta} - 2\mu \, \rho_1 \frac{h_{1,t}^{1+\gamma}}{1+\gamma} - 2(1-\mu) \, \rho_2 \frac{h_{2,t}^{1+\gamma}}{1+\gamma}
+\end{equation}
+
+So the only thing that changes compared to the baseline is that the labor disutility of member 1 is scaled by $2\mu$ and that of member 2 by $2(1-\mu)$.
+
+\subsection*{Implementation}
+
+We add a single parameter \texttt{par.mu = 0.5} to the model class. In the \texttt{util()} function, the disutility weights become \texttt{2*par.mu} for member 1 and \texttt{2*(1-par.mu)} for member 2. The consumption term stays the same as before. Furthermore a check for differences is made where we see that:
+
+\begin{align*}
+    \max|\Delta h1|=0.00e+00 \\
+    \max|\Delta h2|=0.00e+00
+\end{align*}
+
+% ---------------------------------------------------------------
+% PLACEHOLDER PLOT
+% ---------------------------------------------------------------
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{Billeder/Baseline vs. mu=0.5: average hours by period.png}
+    \caption{Caption}
+    \label{fig:placeholder}
+\end{figure}
+

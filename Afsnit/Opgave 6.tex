@@ -1,0 +1,47 @@
+\section{Question 6: Which Tax Regime Does the Household Prefer?}
+
+\subsection*{Method}
+
+To determine which tax system the household prefers, we compare the beginning-of-life value function $V_0(K_{1,0}, K_{2,0})$ under joint and individual taxation. The value function gives the expected discounted lifetime utility when the household starts at a given level of human capital and behaves optimally from that point on:
+%
+\begin{equation}
+    V_0(K_{1,0}, K_{2,0}) = \max_{\{h_{1,t}, h_{2,t}\}_{t=0}^{T-1}} \sum_{t=0}^{T-1} \beta^t \, U(c_t, h_{1,t}, h_{2,t})
+\end{equation}
+%
+A higher $V_0$ means the household is better off. We use $\lambda^{\text{indiv},\star} = 1.7670$ for the individual tax system so that the comparison is revenue-neutral --- meaning any difference in welfare comes from the tax structure itself, not from a change in the overall tax burden.
+
+We get $V_0$ by solving each model and then using bilinear interpolation of the solution array \texttt{sol.V[0]} at the relevant initial state.
+
+\subsection*{Case 1: Asymmetric Couple ($K_{1,0} = 2$, $K_{2,0} = 0$)}
+
+\begin{center}
+\begin{tabular}{l r}
+\hline
+$V_0$ under joint taxation      & $-0.4534$ \\
+$V_0$ under individual taxation & $-0.4534$ \\
+\hline
+\textbf{Preferred regime}       & Individual (marginally) \\
+\hline
+\end{tabular}
+\end{center}
+
+For the asymmetric couple, the two value functions are nearly identical. The household is essentially indifferent, though individual taxation is very slightly preferred. This makes sense: the revenue-neutral reform means the overall tax level is the same, and for a couple where one member starts with no human capital, the benefit of lower marginal rates on the secondary earner roughly balances out.
+
+\subsection*{Case 2: Symmetric Couple ($K_{1,0} = 8$, $K_{2,0} = 8$)}
+
+\begin{center}
+\begin{tabular}{l r}
+\hline
+$V_0$ under joint taxation      & $-0.3782$ \\
+$V_0$ under individual taxation & $-0.3767$ \\
+\hline
+\textbf{Preferred regime}       & Individual \\
+\hline
+\end{tabular}
+\end{center}
+
+For the symmetric high-capital couple, the preference for individual taxation is clearer. Both members have high earnings, so under joint taxation their combined income pushes them into higher marginal tax brackets. Under individual taxation, each is taxed on their own income separately, which results in lower marginal rates and higher welfare.
+
+\subsection*{Discussion}
+
+In both cases the household (weakly) prefers individual taxation. The intuition is that joint taxation creates a penalty for two-earner households because pooling incomes pushes the household into higher tax brackets. Individual taxation removes this penalty. The effect is stronger for the symmetric couple where both members earn a lot, because the ``marriage tax'' from income pooling is larger when both incomes are high.

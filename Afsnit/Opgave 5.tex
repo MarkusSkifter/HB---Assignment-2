@@ -1,0 +1,45 @@
+\section{Question 5: Budget-Neutral Individual Tax Scale $\lambda^{\text{indiv},\star}$}
+
+\subsection*{Goal}
+
+From Question~4 we saw that switching to individual taxation with $\lambda^{\text{indiv}} = 1.75$ raises government revenue. We now want to find the value $\lambda^{\text{indiv},\star}$ such that total lifetime revenue under individual taxation equals that under joint taxation. In other words, we look for the $\lambda$ that solves:
+%
+\begin{equation}
+    \Delta G(\lambda) \equiv G^{\text{indiv}}(\lambda) - G^{\text{joint}} = 0
+\end{equation}
+%
+where $\tau^{\text{indiv}} = 0.0646416$ is kept fixed.
+
+\subsection*{Method}
+
+This is not a simple algebra problem because when we change $\lambda$, households respond by adjusting their hours. So for each candidate value of $\lambda$, we need to fully re-solve the model (using backward induction) and re-simulate it to get the new tax revenue. The steps are:
+
+\begin{enumerate}
+    \item Fix $\tau^{\text{indiv}} = 0.0646416$.
+    \item For a given $\lambda$, create a new model with individual taxation using that $\lambda$, solve it, simulate it, and compute total lifetime revenue $G^{\text{indiv}}(\lambda)$.
+    \item Compute $\Delta G(\lambda) = G^{\text{indiv}}(\lambda) - G^{\text{joint}}$.
+    \item Use a root-finding algorithm to find the $\lambda$ where $\Delta G(\lambda) = 0$.
+\end{enumerate}
+
+We first evaluate $\Delta G$ on a coarse grid of $\lambda$ values between 1.5 and 3.0 to find a bracket where the function changes sign. Then we use Brent's method (\texttt{scipy.optimize.brentq}) to pin down the exact root within that bracket.
+
+% ---------------------------------------------------------------
+% PLACEHOLDER PLOT
+% ---------------------------------------------------------------
+% \begin{center}
+% \fbox{\parbox{0.85\textwidth}{
+% \textbf{[INSERT PLOT: Budget difference as a function of $\lambda^{\text{indiv}}$]}\\[6pt]
+% Scatter/line plot showing $\Delta G(\lambda)$ on the y-axis against $\lambda^{\text{indiv}}$ on the x-axis, for the coarse grid of 8 values between 1.5 and 3.0. A horizontal dashed line at $\Delta G = 0$ marks budget neutrality. The curve should cross zero somewhere around $\lambda \approx 1.77$.
+% }}
+% \end{center}
+
+\subsection*{Result}
+
+The root-finding procedure gives:
+%
+\begin{equation}
+    \lambda^{\text{indiv},\star} = 1.7670
+\end{equation}
+%
+At this value, the individual tax system collects exactly the same total lifetime revenue as the joint system. The value is close to but slightly above the original $\lambda^{\text{indiv}} = 1.75$, which makes sense: since individual taxation generated more revenue at $\lambda = 1.75$, we need to increase $\lambda$ slightly (making the tax a bit more generous) to bring revenue back down to the joint-taxation level.
+
