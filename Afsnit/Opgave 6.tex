@@ -8,9 +8,9 @@ To determine which tax system the household prefers, we compare the beginning-of
     V_0(K_{1,0}, K_{2,0}) = \max_{\{h_{1,t}, h_{2,t}\}_{t=0}^{T-1}} \sum_{t=0}^{T-1} \beta^t \, U(c_t, h_{1,t}, h_{2,t})
 \end{equation}
 %
-A higher $V_0$ means the household is better off. We use $\lambda^{\text{indiv},\star} = 1.7670$ for the individual tax system so that the comparison is revenue-neutral --- meaning any difference in welfare comes from the tax structure itself, not from a change in the overall tax burden.
+A higher $V_0$ means the household is better off. We use $\lambda^{\text{indiv},\star} = 1.7670$ for the individual tax system so that the comparison is revenue-neutral, meaning any difference in welfare comes from the tax structure itself, not from a change in the overall tax burden.
 
-We get $V_0$ by solving each model and then using bilinear interpolation of the solution array \texttt{sol.V[0]} at the relevant initial state.
+We get $V_0$ by solving each model and then using bilinear interpolation of the solution array at the relevant initial state.
 
 \subsection*{Case 1: Asymmetric Couple ($K_{1,0} = 2$, $K_{2,0} = 0$)}
 
