@@ -1,16 +1,18 @@
 \section{Question 2: Why Is Behavior Unchanged at $\mu = 0.5$?}
 
-When we introduced the weights in Question~1, the entire weighted utility was scaled by a factor of 2 so that the consumption term stays identical to the baseline. This means the only terms affected by $\mu$ are the labor-disutility terms, which are multiplied by $2\mu$ and $2(1-\mu)$ respectively.
-
-At $\mu = 0.5$ these factors become $2 \cdot 0.5 = 1$ and $2(1-0.5) = 1$, so the weighted utility reduces exactly to the baseline:
+At $\mu = 0.5$ the weighted utility~\eqref{eq:weighted_util} becomes:
 %
 \begin{align}\label{eq:mu_half}
-    U &= 2\frac{(c_t/2)^{1+\eta}}{1+\eta}
-       - 2\mu \, \rho_1 \frac{h_{1,t}^{1+\gamma}}{1+\gamma}
-       - 2(1-\mu) \, \rho_2 \frac{h_{2,t}^{1+\gamma}}{1+\gamma} \notag \\
-      &= 2\frac{(c_t/2)^{1+\eta}}{1+\eta}
-       - \rho_1 \frac{h_{1,t}^{1+\gamma}}{1+\gamma}
-       - \rho_2 \frac{h_{2,t}^{1+\gamma}}{1+\gamma}
+    U\big|_{\mu=0.5}
+      &= \tfrac{1}{2}\,u_1 + \tfrac{1}{2}\,u_2
+       = \tfrac{1}{2}(u_1 + u_2)
+       = \tfrac{1}{2}\,U_{\text{baseline}}
 \end{align}
 %
-which is identical to the baseline utility in equation~\eqref{eq:baseline_util}. Because the objective function is the same, the optimizer chooses the same hours $h_1$ and $h_2$ in every period, and therefore all simulated labor-market outcomes are unchanged.
+so the weighted objective is a positive scalar multiple of the baseline utility in equation~\eqref{eq:baseline_util}.
+
+The key observation is that utility is \emph{ordinal}: optimal choices depend only on the \emph{ranking} of alternatives, not on the absolute values of $U$. Multiplying the objective by any positive constant $\alpha$ leaves the argmax unchanged, because
+\[
+    \argmax_{h_1,h_2}\; \alpha\, U = \argmax_{h_1,h_2}\; U \quad \text{for all } \alpha > 0.
+\]
+Since $U|_{\mu=0.5} = \tfrac{1}{2}\,U_{\text{baseline}}$, the optimizer chooses identical hours $h_1$ and $h_2$ in every period, and therefore all simulated labor-market outcomes are unchanged.
