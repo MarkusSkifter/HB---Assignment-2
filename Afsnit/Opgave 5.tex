@@ -12,7 +12,7 @@ where $\tau^{\text{indiv}} = 0.0646416$ is kept fixed.
 
 \subsection*{Method}
 
-This is not a simple algebra problem because when we change $\lambda$, households respond by adjusting their hours. So for each candidate value of $\lambda$, we need to fully re-solve the model (using backward induction) and re-simulate it to get the new tax revenue. The steps are:
+When we change $\lambda$, households respond by adjusting their hours. So for each candidate value of $\lambda$, we need to fully re-solve the model and re-simulate it to get the new tax revenue. The steps are:
 
 \begin{enumerate}
     \item Fix $\tau^{\text{indiv}} = 0.0646416$.
@@ -38,5 +38,5 @@ The root-finding procedure gives:
     \lambda^{\text{indiv},\star} = 1.7670
 \end{equation}
 %
-At this value, the individual tax system collects exactly the same total lifetime revenue as the joint system. The value is close to but slightly above the original $\lambda^{\text{indiv}} = 1.75$, which makes sense: since individual taxation generated more revenue at $\lambda = 1.75$, we need to increase $\lambda$ slightly (making the tax a bit more generous) to bring revenue back down to the joint-taxation level.
+At this value, the individual tax system collects exactly the same total lifetime revenue as the joint system. The value is close to but slightly above the original $\lambda^{\text{indiv}} = 1.75$, which makes sense: since individual taxation generated more revenue at $\lambda = 1.75$, we need to increase $\lambda$ slightly to make the tax a bit more generous, to bring revenue back down to the joint-taxation level.
 
