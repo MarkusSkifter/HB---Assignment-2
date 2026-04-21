@@ -35,7 +35,7 @@ So the only thing that changes compared to the baseline is that the labor disuti
 We add a single parameter \texttt{par.mu = 0.5} to the model class. In the \texttt{util()} function, the disutility weights become \texttt{2*par.mu} for member 1 and \texttt{2*(1-par.mu)} for member 2. The consumption term stays the same as before.
 
 \medskip
-\noindent\textbf{Note on the comparison:} \texttt{par.mu = 0.5} is the default value set in \texttt{setup()}, so the ``baseline'' model and the $\mu = 0.5$ model use exactly the same utility function by construction --- they are not approximately equal, they are algebraically identical. This is why the maximum difference reported below is \emph{exactly} zero, not merely a small floating-point residual.
+\noindent\textbf{Note on the comparison:} \texttt{par.mu = 0.5} is the default value set in \texttt{setup()}, so the ``baseline'' model and the $\mu = 0.5$ model use exactly the same utility function by construction. Thereby they are not approximately equal, they are algebraically identical. This is why the maximum difference reported below is exactly zero, not merely a small floating-point residual.
 \medskip
 
 Furthermore a check for differences is made where we see that:
