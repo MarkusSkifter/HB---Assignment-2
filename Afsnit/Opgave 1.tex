@@ -26,13 +26,13 @@ Since $\mu + (1-\mu) = 1$, this expands to
     U = \frac{(c_t/2)^{1+\eta}}{1+\eta} - \mu \, \rho_1 \frac{h_{1,t}^{1+\gamma}}{1+\gamma} - (1-\mu) \, \rho_2 \frac{h_{2,t}^{1+\gamma}}{1+\gamma},
 \end{equation}
 %
-so member~1 carries the labour-disutility weight $\mu$ and member~2 the weight $(1-\mu)$.
+so member~1 carries the labor-disutility weight $\mu$ and member~2 the weight $(1-\mu)$.
 
 \subsection*{Implementation}
 
-We add the parameter \texttt{par.mu = 0.5} to the model class. In \texttt{util()} the labour disutility of member~1 is weighted by \texttt{par.mu} and that of member~2 by \texttt{1-par.mu}, with consumption entering as \texttt{(cons/2)**(1+eta)/(1+eta)}.
+We add the parameter \texttt{par.mu = 0.5} to the model class. In \texttt{util()} the labor disutility of member~1 is weighted by \texttt{par.mu} and that of member~2 by \texttt{1-par.mu}, with consumption entering as \texttt{(cons/2)**(1+eta)/(1+eta)}.
 
-At $\mu = 0.5$ the weighted utility is a positive rescaling of the baseline (see Question~2), and because utility is ordinal the optimal labour supply is unaffected. Solving and simulating both specifications confirms this: the average hours coincide down to the optimizer's numerical tolerance,
+At $\mu = 0.5$ the weighted utility is a positive rescaling of the baseline (see Question~2), and because utility is ordinal the optimal labor supply is unaffected. Solving and simulating both specifications confirms this: the average hours coincide down to the optimizer's numerical tolerance,
 %
 \begin{align*}
     \max|\Delta h_1| &= 9.76\times 10^{-5} \\

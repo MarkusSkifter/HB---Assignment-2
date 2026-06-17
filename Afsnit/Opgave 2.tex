@@ -16,3 +16,5 @@ The key observation is that utility is \emph{ordinal}: optimal choices depend on
     \argmax_{h_1,h_2}\; \alpha\, U = \argmax_{h_1,h_2}\; U \quad \text{for all } \alpha > 0.
 \]
 Since $U|_{\mu=0.5} = \tfrac{1}{2}\,U_{\text{baseline}}$, the optimizer chooses identical hours $h_1$ and $h_2$ in every period, and therefore all simulated labor-market outcomes are unchanged.
+
+This invariance is special to $\mu = 0.5$. Away from it the weighting is no longer a uniform rescaling: it changes the \emph{relative} disutility of the two members' labor, so the household tilts hours toward the member whose effort is weighted less. As $\mu$ rises above $0.5$, member~1's labor disutility receives more weight and member~1 works less while member~2 works more, and symmetrically for $\mu < 0.5$. Equal weights are thus the unique point at which the planner's problem coincides with the unweighted baseline.

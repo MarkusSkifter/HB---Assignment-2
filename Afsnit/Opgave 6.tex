@@ -12,6 +12,14 @@ Here $U$ is the household objective evaluated at $\mu = 0.5$. A higher $V_0$ mea
 
 We get $V_0$ by solving each model and then using bilinear interpolation of the solution array at the relevant initial state.
 
+Comparing raw value-function levels reveals the \emph{sign} of the welfare difference but not its size, because utils have no natural scale. Following the compensating-variation logic of the course welfare analysis, we therefore also report how much extra initial human capital member~1 would need under \emph{joint} taxation to be as well off as under (revenue-neutral) individual taxation:
+%
+\begin{equation}
+    \Delta K_1^{\star}(K_{1,0},K_{2,0}) = \bigl\{\, x : V_0^{\text{joint}}(K_{1,0}+x,\,K_{2,0}) = V_0^{\text{indiv}}(K_{1,0},K_{2,0}) \,\bigr\}.
+\end{equation}
+%
+This is the simple-model counterpart of the asset-compensation measure $a^{\star}$ from the lecture --- here the household has no savings, so the relevant endowment is human capital --- and it translates the util gap into an equivalent first-period wage gain of $\exp(\alpha_{1,1}\,\Delta K_1^{\star})-1$.
+
 \subsection*{Case 1: Asymmetric Couple ($K_{1,0} = 2$, $K_{2,0} = 0$)}
 
 \begin{center}
@@ -25,7 +33,7 @@ $V_0$ under individual taxation & $-0.2267$ \\
 \end{tabular}
 \end{center}
 
-For the asymmetric couple, the two value functions are identical to four decimal places. The difference is within numerical interpolation precision: $V_0$ is retrieved via bilinear interpolation on a discrete grid, so differences smaller than the grid resolution are not economically meaningful. The household is effectively \textbf{indifferent} between the two regimes. This makes sense: the revenue-neutral reform means the overall tax level is the same, and for a couple where one member starts with no human capital, the benefit of lower marginal rates on the secondary earner roughly balances out.
+For the asymmetric couple the two value functions agree to four decimals, and the compensating variation is only $\Delta K_1^{\star} = 0.009$ units of human capital --- equivalent to raising member~1's wage by about $0.09\%$. The household is therefore effectively \textbf{indifferent} between the regimes. Intuitively, with $K_{2,0}=0$ the secondary earner barely works, so the channel through which individual taxation helps --- a lower marginal rate on the second income --- is almost entirely shut off, and a revenue-neutral reform leaves welfare essentially untouched.
 
 \subsection*{Case 2: Symmetric Couple ($K_{1,0} = 8$, $K_{2,0} = 8$)}
 
@@ -40,8 +48,10 @@ $V_0$ under individual taxation & $-0.1883$ \\
 \end{tabular}
 \end{center}
 
-For the symmetric high-capital couple, the preference for individual taxation is clearer. Both members have high earnings, so under joint taxation their combined income pushes them into higher marginal tax brackets. Under individual taxation, each is taxed on their own income separately, which results in lower marginal rates and higher welfare.
+For the symmetric high-capital couple, the preference for individual taxation is clearer. Both members have high earnings, so under joint taxation their combined income pushes them into higher marginal tax brackets. Under individual taxation, each is taxed on their own income separately, which results in lower marginal rates and higher welfare. The gain is now economically meaningful: the compensating variation is $\Delta K_1^{\star} = 0.30$ units of human capital, equivalent to about a $3.0\%$ higher wage for member~1.
 
 \subsection*{Discussion}
 
 In both cases the household (weakly) prefers individual taxation. The intuition is that joint taxation creates a penalty for two-earner households because pooling incomes pushes the household into higher tax brackets. Individual taxation removes this penalty. The effect is stronger for the symmetric couple where both members earn a lot, because the ``marriage tax'' from income pooling is larger when both incomes are high.
+
+These conclusions are robust to the discretisation: refining the human-capital grid from $N_k = 20$ to $N_k = 30$ leaves the preference ranking unchanged and the compensating variation for the symmetric couple stable at $\Delta K_1^{\star} \approx 0.30$, confirming that the welfare differences are economic rather than numerical artefacts.
